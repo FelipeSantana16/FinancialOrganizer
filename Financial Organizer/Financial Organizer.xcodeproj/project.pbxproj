@@ -17,6 +17,8 @@
 		3820773A25D2AD6700D3EEFC /* Financial_OrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820773925D2AD6700D3EEFC /* Financial_OrganizerUITests.swift */; };
 		3820775525D2B01400D3EEFC /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820775425D2B01400D3EEFC /* AppColors.swift */; };
 		3820775A25D2B01F00D3EEFC /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820775925D2B01F00D3EEFC /* Enums.swift */; };
+		3820776325D2B61700D3EEFC /* MainPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820776225D2B61700D3EEFC /* MainPanel.swift */; };
+		3820777025D2BC4C00D3EEFC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3820776F25D2BC4C00D3EEFC /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		3820773B25D2AD6700D3EEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3820775425D2B01400D3EEFC /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		3820775925D2B01F00D3EEFC /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3820776225D2B61700D3EEFC /* MainPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanel.swift; sourceTree = "<group>"; };
+		3820776F25D2BC4C00D3EEFC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		3820770825D2AD6500D3EEFC = {
 			isa = PBXGroup;
 			children = (
+				3820776F25D2BC4C00D3EEFC /* .swiftlint.yml */,
 				3820771325D2AD6500D3EEFC /* Financial Organizer */,
 				3820772D25D2AD6700D3EEFC /* Financial OrganizerTests */,
 				3820773825D2AD6700D3EEFC /* Financial OrganizerUITests */,
@@ -165,6 +170,7 @@
 		3820774D25D2AE4200D3EEFC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3820776225D2B61700D3EEFC /* MainPanel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 				3820770D25D2AD6500D3EEFC /* Sources */,
 				3820770E25D2AD6500D3EEFC /* Frameworks */,
 				3820770F25D2AD6500D3EEFC /* Resources */,
+				3820776B25D2B8C900D3EEFC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -293,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3820777025D2BC4C00D3EEFC /* .swiftlint.yml in Resources */,
 				3820772425D2AD6600D3EEFC /* LaunchScreen.storyboard in Resources */,
 				3820772125D2AD6600D3EEFC /* Assets.xcassets in Resources */,
 			);
@@ -314,6 +322,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3820776B25D2B8C900D3EEFC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3820770D25D2AD6500D3EEFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -323,6 +351,7 @@
 				3820771525D2AD6500D3EEFC /* AppDelegate.swift in Sources */,
 				3820771F25D2AD6500D3EEFC /* Financial_Organizer.xcdatamodeld in Sources */,
 				3820775525D2B01400D3EEFC /* AppColors.swift in Sources */,
+				3820776325D2B61700D3EEFC /* MainPanel.swift in Sources */,
 				3820775A25D2B01F00D3EEFC /* Enums.swift in Sources */,
 				3820771725D2AD6500D3EEFC /* SceneDelegate.swift in Sources */,
 			);
