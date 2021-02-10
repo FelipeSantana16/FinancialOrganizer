@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    lazy var myPanel: MainPanelView = {
-        let view = MainPanelView()
-        view.tableView.delegate = self
-        view.tableView.dataSource = self
-        
+    lazy var myPanel: NewEntryView = {
+        let view = NewEntryView()//MainPanelView()
+//        view.tableView.delegate = self
+//        view.tableView.dataSource = self
+//
         return view
     }()
     

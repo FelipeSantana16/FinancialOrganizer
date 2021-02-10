@@ -39,7 +39,6 @@ class NewEntryView: UIView {
         control.insertSegment(withTitle: "Despesa", at: 1, animated: true)
         control.selectedSegmentIndex = 1
         
-        
         return control
     }()
     
@@ -49,7 +48,7 @@ class NewEntryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         label.text = "Quanto custou?"
-        label.font = UIFont.systemFont(ofSize: 56, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
         label.textColor = UIColor.textDarkGrey
         
         return label
@@ -75,18 +74,20 @@ class NewEntryView: UIView {
         label.text = "O que comprou?"
         label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
         label.textColor = UIColor.textDarkGrey
-        
-        
+                
         return label
     }()
     
     // MARK: Item TextField
     lazy var itemNameTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .line
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         textField.textColor = UIColor.placeHolderWhite
+        textField.placeholder = "Ex: Remédio"
         
         return textField
     }()
@@ -108,6 +109,10 @@ class NewEntryView: UIView {
         let date = UIDatePicker()
         date.translatesAutoresizingMaskIntoConstraints = false
         date.datePickerMode = .dateAndTime
+        
+        let locale = Locale(identifier: "pt-br")
+        date.locale = locale
+        date.calendar.locale = locale
         date.date = Date()
         
         return date
@@ -128,10 +133,12 @@ class NewEntryView: UIView {
     // MARK: Local TextField
     lazy var localTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .line
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         textField.textColor = UIColor.placeHolderWhite
+        textField.placeholder = "Ex: Farmácia"
         
         return textField
     }()
@@ -141,7 +148,7 @@ class NewEntryView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
-        label.text = "Já comprou?"
+        label.text = "Já pagou?"
         label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
         label.textColor = UIColor.textDarkGrey
         
@@ -152,6 +159,7 @@ class NewEntryView: UIView {
     // MARK: Paid Switch
     lazy var paidSwitch: UISwitch = {
         let paidSwitch = UISwitch()
+        paidSwitch.translatesAutoresizingMaskIntoConstraints = false
         paidSwitch.isOn = true
         
         return paidSwitch
@@ -172,10 +180,12 @@ class NewEntryView: UIView {
     // MARK: Paid Method TextField
     lazy var paidMethodTextField: UITextField = {
         let textField = UITextField()
-        textField.borderStyle = .line
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         textField.textColor = UIColor.placeHolderWhite
+        textField.placeholder = "Ex: Cartão de Crédito"
         
         return textField
     }()
@@ -196,10 +206,20 @@ class NewEntryView: UIView {
     // MARK: Fix Expense Switch
     lazy var fixExpenseSwitch: UISwitch = {
         let paidSwitch = UISwitch()
+        paidSwitch.translatesAutoresizingMaskIntoConstraints = false
         paidSwitch.isOn = false
         
         return paidSwitch
     }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpScreen()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension NewEntryView: ViewCode {
@@ -207,34 +227,127 @@ extension NewEntryView: ViewCode {
     // MARK: Build Hierarchy
     func buildHierarchy() {
         addSubview(cancelButton)
-//        addSubview(registerButton)
-//        addSubview(segmentedControl)
-//        addSubview(valueTitle)
-//        addSubview(itemPrice)
-//        addSubview(itemName)
-//        addSubview(itemNameTextField)
-//        addSubview(itemTextDate)
-//        addSubview(itemDate)
-//        addSubview(localLabel)
-//        addSubview(localTextField)
-//        addSubview(paidLabel)
-//        addSubview(paidSwitch)
-//        addSubview(paidMethodLabel)
-//        addSubview(paidMethodTextField)
-//        addSubview(fixExpenseLabel)
-//        addSubview(fixExpenseSwitch)
+        addSubview(registerButton)
+        addSubview(segmentedControl)
+        addSubview(valueTitle)
+        addSubview(itemPrice)
+        addSubview(itemName)
+        addSubview(itemNameTextField)
+        addSubview(itemTextDate)
+        addSubview(itemDate)
+        addSubview(localLabel)
+        addSubview(localTextField)
+        addSubview(paidLabel)
+        addSubview(paidSwitch)
+        addSubview(paidMethodLabel)
+        addSubview(paidMethodTextField)
+        addSubview(fixExpenseLabel)
+        addSubview(fixExpenseSwitch)
     }
     
     // MARK: Constraints
     func setUpLayoutConstraint() {
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 8),
+            cancelButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
         
+        NSLayoutConstraint.activate([
+            registerButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 8),
+            registerButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            segmentedControl.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 24),
+            segmentedControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 42),
+            segmentedControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -42)
+        ])
+        
+        NSLayoutConstraint.activate([
+            valueTitle.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 47),
+            valueTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            itemPrice.topAnchor.constraint(equalTo: valueTitle.bottomAnchor, constant: 8),
+            itemPrice.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            itemName.topAnchor.constraint(equalTo: itemPrice.bottomAnchor, constant: 24),
+            itemName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            itemNameTextField.topAnchor.constraint(equalTo: itemName.bottomAnchor, constant: 4),
+            itemNameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            itemNameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            itemTextDate.topAnchor.constraint(equalTo: itemNameTextField.bottomAnchor, constant: 24),
+            itemTextDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            itemDate.topAnchor.constraint(equalTo: itemTextDate.bottomAnchor, constant: 8),
+            itemDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            localLabel.topAnchor.constraint(equalTo: itemDate.bottomAnchor, constant: 24),
+            localLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            localTextField.topAnchor.constraint(equalTo: localLabel.bottomAnchor, constant: 4),
+            localTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            localTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            paidLabel.topAnchor.constraint(equalTo: localTextField.bottomAnchor, constant: 24),
+            paidLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            paidSwitch.centerYAnchor.constraint(equalTo: paidLabel.centerYAnchor),
+            paidSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            paidMethodLabel.topAnchor.constraint(equalTo: paidLabel.bottomAnchor, constant: 24),
+            paidMethodLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            paidMethodTextField.topAnchor.constraint(equalTo: paidMethodLabel.bottomAnchor, constant: 4),
+            paidMethodTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            paidMethodTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            fixExpenseLabel.topAnchor.constraint(equalTo: paidMethodTextField.bottomAnchor, constant: 24),
+            fixExpenseLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            fixExpenseSwitch.centerYAnchor.constraint(equalTo: fixExpenseLabel.centerYAnchor),
+            fixExpenseSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
     }
     
     // MARK: Aditional Configs
     func aditionalConfigurations() {
         self.backgroundColor = .white
+     
+//        let bottomLine = CALayer()
+//        bottomLine.frame = CGRect(x: 0, y: itemNameTextField.frame.height - 2, width: itemNameTextField.frame.width, height: 2)
+//        bottomLine.backgroundColor = UIColor.textDarkGrey.cgColor
+//
+//        itemNameTextField.borderStyle = UITextField.BorderStyle.none
+//
+//        itemNameTextField.layer.addSublayer(bottomLine)
     }
-    
-    
     
 }
