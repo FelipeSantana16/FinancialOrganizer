@@ -24,4 +24,6 @@ extension UIColor {
     
     static let pendingYellow = UIColor.init(displayP3Red: 250/255, green: 196/255, blue: 0/255, alpha: 1)
     
+    static let tableSeparatorGray = UIColor.init(displayP3Red: 151/255, green: 151/255, blue: 151/255, alpha: 1)
+    
 }

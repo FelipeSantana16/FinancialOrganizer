@@ -9,9 +9,39 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    lazy var myPanel: MainPanelView = {
+        let view = MainPanelView()
+        view.tableView.delegate = self
+        view.tableView.dataSource = self
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view = myPanel
     }
 
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        cell.backgroundColor = .clear
+        //cell.textLabel?.text = "Oi"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        return TableHeaderView()
+    }
+    
 }
