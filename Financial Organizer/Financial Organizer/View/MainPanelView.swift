@@ -135,7 +135,7 @@ class MainPanelView: UIView {
         return label
     }()
     
-    // MARK: TABLE
+    // MARK: Table
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false

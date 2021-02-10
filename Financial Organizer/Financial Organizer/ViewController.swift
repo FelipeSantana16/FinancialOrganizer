@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    lazy var myPanel: NewEntryView = {
-        let view = NewEntryView()//MainPanelView()
-//        view.tableView.delegate = self
-//        view.tableView.dataSource = self
-//
+    lazy var myPanel: IncomeAndExpensesHistoryView = {
+        let view = IncomeAndExpensesHistoryView()//MainPanelView()
+        view.tableView.delegate = self
+        view.tableView.dataSource = self
+
         return view
     }()
     
@@ -34,7 +34,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         cell.backgroundColor = .clear
-        //cell.textLabel?.text = "Oi"
+        cell.textLabel?.text = "Oi"
+        cell.textLabel?.textColor = UIColor.tableTextWhite
         
         return cell
     }
