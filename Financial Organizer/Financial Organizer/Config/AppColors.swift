@@ -26,4 +26,6 @@ extension UIColor {
     
     static let tableSeparatorGray = UIColor.init(displayP3Red: 151/255, green: 151/255, blue: 151/255, alpha: 1)
     
+    static let placeHolderWhite = UIColor.init(displayP3Red: 221/255, green: 221/255, blue: 221/255, alpha: 1)
+    
 }
