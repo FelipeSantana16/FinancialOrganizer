@@ -11,7 +11,7 @@ import CoreData
 class CoreDataManager {
     // MARK: - Core Data stack
 
-    lazy var persistentContainer: NSPersistentContainer = {
+    static var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -41,7 +41,7 @@ class CoreDataManager {
     // MARK: - Core Data Saving support
 
     func saveContext () {
-        let context = persistentContainer.viewContext
+        let context = CoreDataManager.persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
@@ -54,7 +54,26 @@ class CoreDataManager {
         }
     }
     
-//    func fetchMonth() -> Month {
-//
-//    }
+    // MARK: - Fetch Month
+    func fetchMonth(month: String) -> [Month] {
+        
+        var monthData = [Month]()
+        
+        do {
+            let context = CoreDataManager.persistentContainer.viewContext
+            
+            let request = Month.fetchRequest() as NSFetchRequest<Month>
+            
+            let predicate = NSPredicate(format: "name CONTAINS \(month)")
+            
+            request.predicate = predicate
+        
+            monthData = try context.fetch(request)
+        
+        } catch {
+                
+        }
+        
+        return monthData
+    }
 }

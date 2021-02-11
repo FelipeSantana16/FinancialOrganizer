@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Month {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Month> {
@@ -58,6 +57,6 @@ extension Month {
 
 }
 
-extension Month : Identifiable {
+extension Month: Identifiable {
 
 }
