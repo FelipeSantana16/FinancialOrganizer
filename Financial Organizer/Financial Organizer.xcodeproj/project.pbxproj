@@ -21,8 +21,10 @@
 		3820777025D2BC4C00D3EEFC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3820776F25D2BC4C00D3EEFC /* .swiftlint.yml */; };
 		3820777825D2C9CE00D3EEFC /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820777725D2C9CE00D3EEFC /* ViewCode.swift */; };
 		3861719B25D35A34006B7F36 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861719A25D35A34006B7F36 /* TableHeaderView.swift */; };
-		386171A025D36303006B7F36 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861719F25D36303006B7F36 /* NewEntryView.swift */; };
+		386171A025D36303006B7F36 /* NewExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861719F25D36303006B7F36 /* NewExpenseView.swift */; };
 		386171A525D41940006B7F36 /* IncomeAndExpensesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386171A425D41940006B7F36 /* IncomeAndExpensesHistoryView.swift */; };
+		386171B025D42D8B006B7F36 /* NewIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386171AF25D42D8B006B7F36 /* NewIncomeView.swift */; };
+		386171B825D54FFD006B7F36 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386171B725D54FFD006B7F36 /* NewEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +65,10 @@
 		3820776F25D2BC4C00D3EEFC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3820777725D2C9CE00D3EEFC /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		3861719A25D35A34006B7F36 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
-		3861719F25D36303006B7F36 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
+		3861719F25D36303006B7F36 /* NewExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseView.swift; sourceTree = "<group>"; };
 		386171A425D41940006B7F36 /* IncomeAndExpensesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeAndExpensesHistoryView.swift; sourceTree = "<group>"; };
+		386171AF25D42D8B006B7F36 /* NewIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIncomeView.swift; sourceTree = "<group>"; };
+		386171B725D54FFD006B7F36 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +185,10 @@
 			children = (
 				3820776225D2B61700D3EEFC /* MainPanelView.swift */,
 				3861719A25D35A34006B7F36 /* TableHeaderView.swift */,
-				3861719F25D36303006B7F36 /* NewEntryView.swift */,
 				386171A425D41940006B7F36 /* IncomeAndExpensesHistoryView.swift */,
+				386171B725D54FFD006B7F36 /* NewEntryView.swift */,
+				3861719F25D36303006B7F36 /* NewExpenseView.swift */,
+				386171AF25D42D8B006B7F36 /* NewIncomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,15 +366,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3861719B25D35A34006B7F36 /* TableHeaderView.swift in Sources */,
+				386171B825D54FFD006B7F36 /* NewEntryView.swift in Sources */,
 				3820771925D2AD6500D3EEFC /* ViewController.swift in Sources */,
 				3820771525D2AD6500D3EEFC /* AppDelegate.swift in Sources */,
 				3820771F25D2AD6500D3EEFC /* Financial_Organizer.xcdatamodeld in Sources */,
-				386171A025D36303006B7F36 /* NewEntryView.swift in Sources */,
+				386171A025D36303006B7F36 /* NewExpenseView.swift in Sources */,
 				3820775525D2B01400D3EEFC /* AppColors.swift in Sources */,
 				3820776325D2B61700D3EEFC /* MainPanelView.swift in Sources */,
 				3820775A25D2B01F00D3EEFC /* Enums.swift in Sources */,
 				386171A525D41940006B7F36 /* IncomeAndExpensesHistoryView.swift in Sources */,
 				3820771725D2AD6500D3EEFC /* SceneDelegate.swift in Sources */,
+				386171B025D42D8B006B7F36 /* NewIncomeView.swift in Sources */,
 				3820777825D2C9CE00D3EEFC /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

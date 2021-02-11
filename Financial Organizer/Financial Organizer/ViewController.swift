@@ -9,10 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    lazy var myPanel: IncomeAndExpensesHistoryView = {
-        let view = IncomeAndExpensesHistoryView()//MainPanelView()
-        view.tableView.delegate = self
-        view.tableView.dataSource = self
+    lazy var myPanel: NewEntryView = {
+        let view = NewEntryView()
 
         return view
     }()
@@ -20,6 +18,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = myPanel
+        self.myPanel.segmentedControl.addTarget(self, action: #selector(handleSegmentedChange), for: .valueChanged)
+    }
+    
+    @objc func handleSegmentedChange() {
+        switch self.myPanel.segmentedControl.selectedSegmentIndex {
+        case 0:
+            self.myPanel.incomeView.isHidden = false
+            self.myPanel.expenseView.isHidden = true
+            
+        case 1:
+            self.myPanel.incomeView.isHidden = true
+            self.myPanel.expenseView.isHidden = false
+            
+        default:
+            self.myPanel.incomeView.isHidden = false
+            self.myPanel.expenseView.isHidden = true
+        }
     }
 
 }
