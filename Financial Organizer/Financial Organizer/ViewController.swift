@@ -23,17 +23,17 @@ class ViewController: UIViewController {
     
     @objc func handleSegmentedChange() {
         switch self.myPanel.segmentedControl.selectedSegmentIndex {
-        case 0:
-            self.myPanel.incomeView.isHidden = false
-            self.myPanel.expenseView.isHidden = true
+            case 0:
+                self.myPanel.incomeView.isHidden = false
+                self.myPanel.expenseView.isHidden = true
             
-        case 1:
-            self.myPanel.incomeView.isHidden = true
-            self.myPanel.expenseView.isHidden = false
+            case 1:
+                self.myPanel.incomeView.isHidden = true
+                self.myPanel.expenseView.isHidden = false
             
-        default:
-            self.myPanel.incomeView.isHidden = false
-            self.myPanel.expenseView.isHidden = true
+            default:
+                self.myPanel.incomeView.isHidden = false
+                self.myPanel.expenseView.isHidden = true
         }
     }
 
