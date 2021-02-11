@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="category">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="formOfPayment" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFixed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="local" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="paid" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="month" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Month" inverseName="expense" inverseEntity="Month"/>
+    </entity>
+    <entity name="Income" representedClassName="Income" syncable="YES" codeGenerationType="category">
+        <attribute name="alredyReceived" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isFixed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="month" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Month" inverseName="income" inverseEntity="Month"/>
+    </entity>
+    <entity name="Month" representedClassName="Month" syncable="YES" codeGenerationType="category">
+        <attribute name="expenses" optional="YES" attributeType="Transformable" customClassName="[Expense]"/>
+        <attribute name="incomes" optional="YES" attributeType="Transformable" customClassName="[Income]"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="expense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="month" inverseEntity="Expense"/>
+        <relationship name="income" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Income" inverseName="month" inverseEntity="Income"/>
+    </entity>
+    <elements>
+        <element name="Expense" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="Income" positionX="-63" positionY="36" width="128" height="119"/>
+        <element name="Month" positionX="-54" positionY="54" width="128" height="104"/>
+    </elements>
 </model>

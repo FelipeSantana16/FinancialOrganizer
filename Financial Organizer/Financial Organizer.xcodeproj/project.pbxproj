@@ -25,6 +25,12 @@
 		386171A525D41940006B7F36 /* IncomeAndExpensesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386171A425D41940006B7F36 /* IncomeAndExpensesHistoryView.swift */; };
 		386171B025D42D8B006B7F36 /* NewIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386171AF25D42D8B006B7F36 /* NewIncomeView.swift */; };
 		386171B825D54FFD006B7F36 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386171B725D54FFD006B7F36 /* NewEntryView.swift */; };
+		38C6BA8325D57BCD00891AB4 /* Income+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6BA7D25D57BCD00891AB4 /* Income+CoreDataClass.swift */; };
+		38C6BA8425D57BCD00891AB4 /* Income+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6BA7E25D57BCD00891AB4 /* Income+CoreDataProperties.swift */; };
+		38C6BA8525D57BCD00891AB4 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6BA7F25D57BCD00891AB4 /* Expense+CoreDataClass.swift */; };
+		38C6BA8625D57BCD00891AB4 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6BA8025D57BCD00891AB4 /* Expense+CoreDataProperties.swift */; };
+		38C6BA8725D57BCD00891AB4 /* Month+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6BA8125D57BCD00891AB4 /* Month+CoreDataClass.swift */; };
+		38C6BA8825D57BCD00891AB4 /* Month+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6BA8225D57BCD00891AB4 /* Month+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		386171A425D41940006B7F36 /* IncomeAndExpensesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeAndExpensesHistoryView.swift; sourceTree = "<group>"; };
 		386171AF25D42D8B006B7F36 /* NewIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIncomeView.swift; sourceTree = "<group>"; };
 		386171B725D54FFD006B7F36 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
+		38C6BA7D25D57BCD00891AB4 /* Income+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Income+CoreDataClass.swift"; sourceTree = "<group>"; };
+		38C6BA7E25D57BCD00891AB4 /* Income+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Income+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		38C6BA7F25D57BCD00891AB4 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		38C6BA8025D57BCD00891AB4 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		38C6BA8125D57BCD00891AB4 /* Month+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Month+CoreDataClass.swift"; sourceTree = "<group>"; };
+		38C6BA8225D57BCD00891AB4 /* Month+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Month+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +188,12 @@
 		3820774C25D2AE3A00D3EEFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				38C6BA7D25D57BCD00891AB4 /* Income+CoreDataClass.swift */,
+				38C6BA7E25D57BCD00891AB4 /* Income+CoreDataProperties.swift */,
+				38C6BA7F25D57BCD00891AB4 /* Expense+CoreDataClass.swift */,
+				38C6BA8025D57BCD00891AB4 /* Expense+CoreDataProperties.swift */,
+				38C6BA8125D57BCD00891AB4 /* Month+CoreDataClass.swift */,
+				38C6BA8225D57BCD00891AB4 /* Month+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,16 +385,22 @@
 			files = (
 				3861719B25D35A34006B7F36 /* TableHeaderView.swift in Sources */,
 				386171B825D54FFD006B7F36 /* NewEntryView.swift in Sources */,
+				38C6BA8525D57BCD00891AB4 /* Expense+CoreDataClass.swift in Sources */,
 				3820771925D2AD6500D3EEFC /* ViewController.swift in Sources */,
 				3820771525D2AD6500D3EEFC /* AppDelegate.swift in Sources */,
 				3820771F25D2AD6500D3EEFC /* Financial_Organizer.xcdatamodeld in Sources */,
 				386171A025D36303006B7F36 /* NewExpenseView.swift in Sources */,
+				38C6BA8325D57BCD00891AB4 /* Income+CoreDataClass.swift in Sources */,
 				3820775525D2B01400D3EEFC /* AppColors.swift in Sources */,
 				3820776325D2B61700D3EEFC /* MainPanelView.swift in Sources */,
+				38C6BA8425D57BCD00891AB4 /* Income+CoreDataProperties.swift in Sources */,
 				3820775A25D2B01F00D3EEFC /* Enums.swift in Sources */,
 				386171A525D41940006B7F36 /* IncomeAndExpensesHistoryView.swift in Sources */,
 				3820771725D2AD6500D3EEFC /* SceneDelegate.swift in Sources */,
 				386171B025D42D8B006B7F36 /* NewIncomeView.swift in Sources */,
+				38C6BA8825D57BCD00891AB4 /* Month+CoreDataProperties.swift in Sources */,
+				38C6BA8625D57BCD00891AB4 /* Expense+CoreDataProperties.swift in Sources */,
+				38C6BA8725D57BCD00891AB4 /* Month+CoreDataClass.swift in Sources */,
 				3820777825D2C9CE00D3EEFC /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
