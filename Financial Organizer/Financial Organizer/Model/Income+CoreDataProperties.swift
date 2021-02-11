@@ -16,11 +16,11 @@ extension Income {
         return NSFetchRequest<Income>(entityName: "Income")
     }
 
-    @NSManaged public var value: Double
-    @NSManaged public var source: String?
+    @NSManaged public var alredyReceived: Bool
     @NSManaged public var date: Date?
     @NSManaged public var isFixed: Bool
-    @NSManaged public var alredyReceived: Bool
+    @NSManaged public var source: String?
+    @NSManaged public var value: Double
     @NSManaged public var month: Month?
 
 }

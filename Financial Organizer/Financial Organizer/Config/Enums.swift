@@ -14,9 +14,12 @@ enum FormOfPayment: Int64 {
     
     var description: String {
         switch self {
-        case .creditCard: return "Cartão de Crédito"
-        case .debitCard: return "Cartão de Débito"
-        case .money: return "Dinheiro"
+            case .creditCard:
+                return "Cartão de Crédito"
+            case .debitCard:
+                return "Cartão de Débito"
+            case .money:
+                return "Dinheiro"
         }
     }
 }

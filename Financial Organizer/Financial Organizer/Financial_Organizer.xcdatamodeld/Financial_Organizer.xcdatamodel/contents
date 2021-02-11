@@ -22,8 +22,8 @@
         <attribute name="expenses" optional="YES" attributeType="Transformable" customClassName="[Expense]"/>
         <attribute name="incomes" optional="YES" attributeType="Transformable" customClassName="[Income]"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="expense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="month" inverseEntity="Expense"/>
-        <relationship name="income" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Income" inverseName="month" inverseEntity="Income"/>
+        <relationship name="expense" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="month" inverseEntity="Expense"/>
+        <relationship name="income" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Income" inverseName="month" inverseEntity="Income"/>
     </entity>
     <elements>
         <element name="Expense" positionX="-63" positionY="-18" width="128" height="149"/>
