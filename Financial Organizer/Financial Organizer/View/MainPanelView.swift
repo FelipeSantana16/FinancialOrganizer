@@ -135,6 +135,24 @@ class MainPanelView: UIView {
         return label
     }()
     
+    // MARK: Income Button
+    lazy var incomeButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        
+        return button
+    }()
+    
+    // MARK: Expense Button
+    lazy var expenseButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        
+        return button
+    }()
+    
     // MARK: Table
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -181,6 +199,8 @@ extension MainPanelView: ViewCode {
         addSubview(dividingLineExpense)
         addSubview(incomeLabel)
         addSubview(expenseLabel)
+        addSubview(incomeButton)
+        addSubview(expenseButton)
         addSubview(tableView)
     }
     
@@ -254,6 +274,20 @@ extension MainPanelView: ViewCode {
         NSLayoutConstraint.activate([
             expenseLabel.topAnchor.constraint(equalTo: dividingLineExpense.bottomAnchor, constant: 8),
             expenseLabel.centerXAnchor.constraint(equalTo: expenseBackground.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            incomeButton.centerYAnchor.constraint(equalTo: incomeBackground.centerYAnchor),
+            incomeButton.centerXAnchor.constraint(equalTo: incomeBackground.centerXAnchor),
+            incomeButton.heightAnchor.constraint(equalTo: incomeBackground.heightAnchor),
+            incomeButton.widthAnchor.constraint(equalTo: incomeBackground.widthAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            expenseButton.centerYAnchor.constraint(equalTo: expenseBackground.centerYAnchor),
+            expenseButton.centerXAnchor.constraint(equalTo: expenseBackground.centerXAnchor),
+            expenseButton.heightAnchor.constraint(equalTo: expenseBackground.heightAnchor),
+            expenseButton.widthAnchor.constraint(equalTo: expenseBackground.widthAnchor)
         ])
         
         NSLayoutConstraint.activate([

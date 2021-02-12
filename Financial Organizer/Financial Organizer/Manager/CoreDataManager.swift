@@ -76,4 +76,40 @@ class CoreDataManager {
         
         return monthData
     }
+    
+    // MARK: - AddExpense
+//    func addExpense(expense: Expense, month: String) {
+//        var monthData = Month()
+//        do {
+//            let context = CoreDataManager.persistentContainer.viewContext
+//            
+//            let request = Month.fetchRequest() as NSFetchRequest<Month>
+//            
+//            let predicate = NSPredicate(format: "name CONTAINS \(month)")
+//            
+//            request.predicate = predicate
+//            
+//            monthData = try context.fetch(request)
+//        } catch {
+//            
+//        }
+//        
+//    }
+    
+    // MARK: - AddIncome
+    func addIncome(income: Income, month: String) {
+        
+        //let context = CoreDataManager.persistentContainer.viewContext
+        
+    }
+    
+    // MARK: - RemoveExpense
+    func removeExpense() {
+        
+    }
+    
+    // MARK: - RemoveIncome
+    func removeIncome() {
+       
+    }
 }
