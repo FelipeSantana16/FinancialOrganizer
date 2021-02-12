@@ -39,10 +39,7 @@ extension IncomeExpenseHistoryViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-        cell.backgroundColor = .clear
-        cell.textLabel?.text = "Oi"
-        cell.textLabel?.textColor = UIColor.tableTextWhite
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as! HistoryTableViewCell
         
         return cell
     }
@@ -54,4 +51,7 @@ extension IncomeExpenseHistoryViewController: UITableViewDelegate, UITableViewDa
         return header
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 69
+    }
 }

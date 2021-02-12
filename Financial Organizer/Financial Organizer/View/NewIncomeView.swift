@@ -22,15 +22,17 @@ class NewIncomeView: UIView {
     }()
     
     // MARK: Item Price
-    lazy var itemPrice: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.text = "R$ 00,0"
-        label.font = UIFont.systemFont(ofSize: 56, weight: .semibold)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
+    lazy var itemPrice: UITextField = {
+        let price = UITextField()
+        price.translatesAutoresizingMaskIntoConstraints = false
+        price.borderStyle = .none
+        price.clearsOnBeginEditing = true
+        price.font = UIFont.systemFont(ofSize: 56, weight: .semibold)
+        price.textColor = UIColor.textDarkGrey
+        price.placeholder = "R$ 00,0"
+        price.attributedPlaceholder = NSAttributedString(string: "R$ 00,0", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
+
+        return price
     }()
     
     // MARK: Item Name Label
@@ -53,8 +55,9 @@ class NewIncomeView: UIView {
         textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        textField.textColor = UIColor.placeHolderWhite
         textField.placeholder = "Ex: Aluguel de casa"
+        textField.textColor = UIColor.textDarkGrey
+        textField.attributedPlaceholder = NSAttributedString(string: "Ex: Salário", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
         
         return textField
     }()

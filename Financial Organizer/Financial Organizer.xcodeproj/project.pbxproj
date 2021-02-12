@@ -35,6 +35,7 @@
 		38EA77C125D6A21A00836B30 /* MainPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77C025D6A21A00836B30 /* MainPanelViewController.swift */; };
 		38EA77C625D6A52D00836B30 /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77C525D6A52D00836B30 /* NewEntryViewController.swift */; };
 		38EA77CB25D6A9FD00836B30 /* IncomeExpenseHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77CA25D6A9FD00836B30 /* IncomeExpenseHistoryViewController.swift */; };
+		38EA77D025D6B4D500836B30 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77CF25D6B4D500836B30 /* HistoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		38EA77C025D6A21A00836B30 /* MainPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanelViewController.swift; sourceTree = "<group>"; };
 		38EA77C525D6A52D00836B30 /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 		38EA77CA25D6A9FD00836B30 /* IncomeExpenseHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpenseHistoryViewController.swift; sourceTree = "<group>"; };
+		38EA77CF25D6B4D500836B30 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +148,6 @@
 				3820774D25D2AE4200D3EEFC /* View */,
 				3820774E25D2AE4800D3EEFC /* Controller */,
 				3820774F25D2AE6500D3EEFC /* ViewModel */,
-				3820775025D2AE6E00D3EEFC /* Table Cell */,
 				3820771425D2AD6500D3EEFC /* AppDelegate.swift */,
 				3820771625D2AD6500D3EEFC /* SceneDelegate.swift */,
 				3820771825D2AD6500D3EEFC /* ViewController.swift */,
@@ -210,6 +211,7 @@
 		3820774D25D2AE4200D3EEFC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3820775025D2AE6E00D3EEFC /* Table Cell */,
 				3820776225D2B61700D3EEFC /* MainPanelView.swift */,
 				3861719A25D35A34006B7F36 /* TableHeaderView.swift */,
 				386171A425D41940006B7F36 /* IncomeAndExpensesHistoryView.swift */,
@@ -240,6 +242,7 @@
 		3820775025D2AE6E00D3EEFC /* Table Cell */ = {
 			isa = PBXGroup;
 			children = (
+				38EA77CF25D6B4D500836B30 /* HistoryTableViewCell.swift */,
 			);
 			path = "Table Cell";
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				386171A025D36303006B7F36 /* NewExpenseView.swift in Sources */,
 				38EA77AA25D5A2B600836B30 /* Income+CoreDataProperties.swift in Sources */,
 				3820775525D2B01400D3EEFC /* AppColors.swift in Sources */,
+				38EA77D025D6B4D500836B30 /* HistoryTableViewCell.swift in Sources */,
 				3820776325D2B61700D3EEFC /* MainPanelView.swift in Sources */,
 				38EA77C125D6A21A00836B30 /* MainPanelViewController.swift in Sources */,
 				3820775A25D2B01F00D3EEFC /* Enums.swift in Sources */,

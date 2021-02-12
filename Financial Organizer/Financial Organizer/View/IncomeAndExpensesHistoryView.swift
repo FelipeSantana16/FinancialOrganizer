@@ -55,6 +55,9 @@ class IncomeAndExpensesHistoryView: UIView {
         table.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        table.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
+        
         return table
     }()
 

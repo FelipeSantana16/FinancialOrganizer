@@ -22,17 +22,19 @@ class NewExpenseView: UIView {
     }()
     
     // MARK: Item Price
-    lazy var itemPrice: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.text = "R$ 00,0"
-        label.font = UIFont.systemFont(ofSize: 56, weight: .semibold)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
+    lazy var itemPrice: UITextField = {
+        let price = UITextField()
+        price.translatesAutoresizingMaskIntoConstraints = false
+        price.borderStyle = .none
+        price.clearsOnBeginEditing = true
+        price.font = UIFont.systemFont(ofSize: 56, weight: .semibold)
+        price.textColor = UIColor.textDarkGrey
+        price.placeholder = "R$ 00,0"
+        price.attributedPlaceholder = NSAttributedString(string: "R$ 00,0", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
+
+        return price
     }()
-    
+
     // MARK: Item Name
     lazy var itemName: UILabel = {
         let label = UILabel()
@@ -53,8 +55,9 @@ class NewExpenseView: UIView {
         textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        textField.textColor = UIColor.placeHolderWhite
         textField.placeholder = "Ex: Remédio"
+        textField.textColor = UIColor.textDarkGrey
+        textField.attributedPlaceholder = NSAttributedString(string: "Ex: Remédio", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
         
         return textField
     }()
@@ -104,8 +107,9 @@ class NewExpenseView: UIView {
         textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        textField.textColor = UIColor.placeHolderWhite
         textField.placeholder = "Ex: Farmácia"
+        textField.textColor = UIColor.textDarkGrey
+        textField.attributedPlaceholder = NSAttributedString(string: "Ex: Farmácia", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
         
         return textField
     }()
@@ -151,8 +155,9 @@ class NewExpenseView: UIView {
         textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        textField.textColor = UIColor.placeHolderWhite
         textField.placeholder = "Ex: Cartão de Crédito"
+        textField.textColor = UIColor.textDarkGrey
+        textField.attributedPlaceholder = NSAttributedString(string: "Ex: Dinheiro", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
         
         return textField
     }()
