@@ -2,7 +2,7 @@
 //  Income+CoreDataProperties.swift
 //  Financial Organizer
 //
-//  Created by Felipe Santana on 11/02/21.
+//  Created by Felipe Santana on 12/02/21.
 //
 //
 
@@ -20,7 +20,6 @@ extension Income {
     @NSManaged public var isFixed: Bool
     @NSManaged public var source: String?
     @NSManaged public var value: Double
-    @NSManaged public var month: Month?
 
 }
 

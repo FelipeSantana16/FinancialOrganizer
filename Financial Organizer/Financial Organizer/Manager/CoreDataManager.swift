@@ -54,62 +54,50 @@ class CoreDataManager {
         }
     }
     
-    // MARK: - Fetch Month
-    func fetchMonth(month: String) -> [Month] {
+    // MARK: - New Expense ManagedObject
+    func newExpenseManagedObject() -> NSManagedObject {
         
-        var monthData = [Month]()
+        let managedContext = CoreDataManager.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Expense",
+                                       in: managedContext)!
+        
+        return NSManagedObject(entity: entity, insertInto: managedContext)
+    }
+    
+    // MARK: - Fetch Expenses
+    func fetchExpenses() -> [Expense] {
+        var expenses = [Expense]()
         
         do {
-            let context = CoreDataManager.persistentContainer.viewContext
+            let request = Expense.fetchRequest() as NSFetchRequest<Expense>
             
-            let request = Month.fetchRequest() as NSFetchRequest<Month>
+            try expenses = CoreDataManager.persistentContainer.viewContext.fetch(request)
             
-            let predicate = NSPredicate(format: "name CONTAINS \(month)")
-            
-            request.predicate = predicate
-        
-            monthData = try context.fetch(request)
-        
         } catch {
-                
+            
+            return expenses
+        
         }
         
-        return monthData
+        return expenses
     }
     
-    // MARK: - AddExpense
-//    func addExpense(expense: Expense, month: String) {
-//        var monthData = Month()
-//        do {
-//            let context = CoreDataManager.persistentContainer.viewContext
-//            
-//            let request = Month.fetchRequest() as NSFetchRequest<Month>
-//            
-//            let predicate = NSPredicate(format: "name CONTAINS \(month)")
-//            
-//            request.predicate = predicate
-//            
-//            monthData = try context.fetch(request)
-//        } catch {
-//            
-//        }
-//        
-//    }
-    
-    // MARK: - AddIncome
-    func addIncome(income: Income, month: String) {
+    // MARK: - Fetch Incomes
+    func fetchIncomes() -> [Income] {
+        var incomes = [Income]()
         
-        //let context = CoreDataManager.persistentContainer.viewContext
+        do {
+            let request = Income.fetchRequest() as NSFetchRequest<Income>
+            
+            try incomes = CoreDataManager.persistentContainer.viewContext.fetch(request)
+            
+        } catch {
+            
+            return incomes
         
-    }
-    
-    // MARK: - RemoveExpense
-    func removeExpense() {
+        }
         
-    }
-    
-    // MARK: - RemoveIncome
-    func removeIncome() {
-       
+        return incomes
     }
 }

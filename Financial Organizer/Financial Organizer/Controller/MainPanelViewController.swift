@@ -30,7 +30,9 @@ class MainPanelViewController: UIViewController {
     }
     
     @objc func addNewEntry() {
+        
         self.present(NewEntryViewController(), animated: true, completion: nil)
+        
     }
     
     @objc func showIncomes() {
