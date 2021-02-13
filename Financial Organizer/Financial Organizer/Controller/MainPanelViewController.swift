@@ -23,6 +23,7 @@ class MainPanelViewController: UIViewController {
         self.myPanel.entryButton.addTarget(self, action: #selector(addNewEntry), for: .touchUpInside)
         self.myPanel.incomeButton.addTarget(self, action: #selector(showIncomes), for: .touchUpInside)
         self.myPanel.expenseButton.addTarget(self, action: #selector(showExpenses), for: .touchUpInside)
+        //aqui deve ter uma chamada do tipo "alimentarTable" que pode ser MainPanelViewModel.getTableData
     }
     
     override func viewWillAppear(_ animated: Bool) {

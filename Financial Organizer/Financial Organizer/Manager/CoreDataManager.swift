@@ -11,7 +11,7 @@ import CoreData
 class CoreDataManager {
     // MARK: - Core Data stack
 
-    static var persistentContainer: NSPersistentContainer = {
+     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
@@ -41,7 +41,7 @@ class CoreDataManager {
     // MARK: - Core Data Saving support
 
     func saveContext () {
-        let context = CoreDataManager.persistentContainer.viewContext
+        let context = self.persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
@@ -57,7 +57,7 @@ class CoreDataManager {
     // MARK: - New Expense ManagedObject
     func newExpenseManagedObject() -> NSManagedObject {
         
-        let managedContext = CoreDataManager.persistentContainer.viewContext
+        let managedContext = self.persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "Expense",
                                        in: managedContext)!
@@ -67,37 +67,63 @@ class CoreDataManager {
     
     // MARK: - Fetch Expenses
     func fetchExpenses() -> [Expense] {
-        var expenses = [Expense]()
         
         do {
             let request = Expense.fetchRequest() as NSFetchRequest<Expense>
             
-            try expenses = CoreDataManager.persistentContainer.viewContext.fetch(request)
+            return try self.persistentContainer.viewContext.fetch(request)
             
         } catch {
-            
-            return expenses
+            print("Não foi possível fazer a requisição dos gastos")
+            return []
         
         }
-        
-        return expenses
-    }
+}
     
     // MARK: - Fetch Incomes
     func fetchIncomes() -> [Income] {
-        var incomes = [Income]()
         
         do {
             let request = Income.fetchRequest() as NSFetchRequest<Income>
             
-            try incomes = CoreDataManager.persistentContainer.viewContext.fetch(request)
+            return try self.persistentContainer.viewContext.fetch(request)
             
         } catch {
-            
-            return incomes
+            print("Não foi possível fazer a requisição das receitas")
+            return []
         
         }
+    }
+    
+    // MARK: - Add Expense
+    func addExpense(expense: Expense) {
         
-        return incomes
+        self.persistentContainer.viewContext.insert(expense)
+        self.saveContext()
+        
+    }
+    
+    // MARK: - Add Income
+    func addIncome(income: Income) {
+        
+        self.persistentContainer.viewContext.insert(income)
+        self.saveContext()
+        
+    }
+    
+    // MARK: - Remove Expense
+    func removeExpense(expense: Expense) {
+        
+        self.persistentContainer.viewContext.delete(expense)
+        self.saveContext()
+        
+    }
+    
+    // MARK: - Remove Income
+    func removeIncome(income: Income) {
+        
+        self.persistentContainer.viewContext.delete(income)
+        self.saveContext()
+        
     }
 }
