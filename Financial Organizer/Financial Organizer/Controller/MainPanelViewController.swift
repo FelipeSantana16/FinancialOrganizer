@@ -9,6 +9,8 @@ import UIKit
 
 class MainPanelViewController: UIViewController {
     
+    var panelViewModel = MainPanelViewModel()
+    
     lazy var myPanel: MainPanelView = {
         let view = MainPanelView()
         view.tableView.delegate = self
@@ -23,16 +25,41 @@ class MainPanelViewController: UIViewController {
         self.myPanel.entryButton.addTarget(self, action: #selector(addNewEntry), for: .touchUpInside)
         self.myPanel.incomeButton.addTarget(self, action: #selector(showIncomes), for: .touchUpInside)
         self.myPanel.expenseButton.addTarget(self, action: #selector(showExpenses), for: .touchUpInside)
+        
+        panelViewModel.updateEntries()
+        
+        myPanel.balanceValueLabel.text = "R$ " +  String(panelViewModel.getBalance())
+        
+        myPanel.expenseValueLabel.text = "R$ " +  String(panelViewModel.expensesViewModel.getTotalExpense())
+        
+        myPanel.incomeValueLabel.text = "R$ " +  String(panelViewModel.incomesViewModel.getTotalIncome())
         //aqui deve ter uma chamada do tipo "alimentarTable" que pode ser MainPanelViewModel.getTableData
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     @objc func addNewEntry() {
+        let controller = NewEntryViewController()
+        controller.callback = {
+            
+            DispatchQueue.main.async {
+                
+                self.panelViewModel.updateEntries()
+                self.myPanel.tableView.reloadData()
+                self.myPanel.balanceValueLabel.text = "R$ " +  String(self.panelViewModel.getBalance())
+                
+                self.myPanel.expenseValueLabel.text = "R$ " +  String(self.panelViewModel.expensesViewModel.getTotalExpense())
+                
+                self.myPanel.incomeValueLabel.text = "R$ " +  String(self.panelViewModel.incomesViewModel.getTotalIncome())
+                
+            }
+            
+        }
         
-        self.present(NewEntryViewController(), animated: true, completion: nil)
+        self.present(controller, animated: true, completion: nil)
         
     }
     
@@ -64,12 +91,17 @@ extension MainPanelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return panelViewModel.entries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as! HistoryTableViewCell
+        
+        let cellData = panelViewModel.entries[indexPath.row]
+        
+        //Passar cellData inteiro e dentro da config fazer essas atribuições
+        cell.configCell(name: cellData.itemName, price: cellData.itemPrice, date: cellData.itemDate, status: cellData.itemStatus, cellType: cellData.expenseType)
         
         return cell
     }

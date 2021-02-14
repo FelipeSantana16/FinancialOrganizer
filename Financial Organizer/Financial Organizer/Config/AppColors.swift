@@ -28,4 +28,5 @@ extension UIColor {
     
     static let placeHolderWhite = UIColor.init(displayP3Red: 221/255, green: 221/255, blue: 221/255, alpha: 1)
     
+    static let tableExpenseRed = UIColor.init(displayP3Red: 226/255, green: 115/255, blue: 117/255, alpha: 1)
 }

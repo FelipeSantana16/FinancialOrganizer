@@ -65,6 +65,17 @@ class CoreDataManager {
         return NSManagedObject(entity: entity, insertInto: managedContext)
     }
     
+    // MARK: - New Income ManagedObject
+    func newIncomeManagedObject() -> NSManagedObject {
+        
+        let managedContext = self.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Income", in: managedContext)!
+        
+        return NSManagedObject(entity: entity, insertInto: managedContext)
+        
+    }
+    
     // MARK: - Fetch Expenses
     func fetchExpenses() -> [Expense] {
         

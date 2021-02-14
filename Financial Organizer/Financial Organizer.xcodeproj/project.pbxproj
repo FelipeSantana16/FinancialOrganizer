@@ -30,12 +30,14 @@
 		38EA77C625D6A52D00836B30 /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77C525D6A52D00836B30 /* NewEntryViewController.swift */; };
 		38EA77CB25D6A9FD00836B30 /* IncomeExpenseHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77CA25D6A9FD00836B30 /* IncomeExpenseHistoryViewController.swift */; };
 		38EA77D025D6B4D500836B30 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77CF25D6B4D500836B30 /* HistoryTableViewCell.swift */; };
-		38EA77EF25D7173A00836B30 /* NewExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77EE25D7173A00836B30 /* NewExpenseViewModel.swift */; };
+		38EA77EF25D7173A00836B30 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77EE25D7173A00836B30 /* ExpenseViewModel.swift */; };
 		38EA77FA25D729D800836B30 /* Income+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77F625D729D800836B30 /* Income+CoreDataClass.swift */; };
 		38EA77FB25D729D800836B30 /* Income+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77F725D729D800836B30 /* Income+CoreDataProperties.swift */; };
 		38EA77FC25D729D800836B30 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77F825D729D800836B30 /* Expense+CoreDataClass.swift */; };
 		38EA77FD25D729D800836B30 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA77F925D729D800836B30 /* Expense+CoreDataProperties.swift */; };
-		38EA780A25D73ECE00836B30 /* NewIncomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA780925D73ECE00836B30 /* NewIncomeViewModel.swift */; };
+		38EA780A25D73ECE00836B30 /* IncomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA780925D73ECE00836B30 /* IncomeViewModel.swift */; };
+		38EA782025D87EB900836B30 /* Parsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA781F25D87EB900836B30 /* Parsers.swift */; };
+		38EA782B25D8AEB000836B30 /* MainPanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA782A25D8AEAF00836B30 /* MainPanelViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,12 +87,14 @@
 		38EA77C525D6A52D00836B30 /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 		38EA77CA25D6A9FD00836B30 /* IncomeExpenseHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpenseHistoryViewController.swift; sourceTree = "<group>"; };
 		38EA77CF25D6B4D500836B30 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		38EA77EE25D7173A00836B30 /* NewExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseViewModel.swift; sourceTree = "<group>"; };
+		38EA77EE25D7173A00836B30 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		38EA77F625D729D800836B30 /* Income+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Income+CoreDataClass.swift"; sourceTree = "<group>"; };
 		38EA77F725D729D800836B30 /* Income+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Income+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		38EA77F825D729D800836B30 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
 		38EA77F925D729D800836B30 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		38EA780925D73ECE00836B30 /* NewIncomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIncomeViewModel.swift; sourceTree = "<group>"; };
+		38EA780925D73ECE00836B30 /* IncomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewModel.swift; sourceTree = "<group>"; };
+		38EA781F25D87EB900836B30 /* Parsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsers.swift; sourceTree = "<group>"; };
+		38EA782A25D8AEAF00836B30 /* MainPanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanelViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			children = (
 				3820774A25D2AE0A00D3EEFC /* Config */,
 				3820774B25D2AE3000D3EEFC /* Manager */,
+				38EA781E25D87E8E00836B30 /* Parsers */,
 				3820774C25D2AE3A00D3EEFC /* Model */,
 				3820774D25D2AE4200D3EEFC /* View */,
 				3820774E25D2AE4800D3EEFC /* Controller */,
@@ -233,8 +238,9 @@
 		3820774F25D2AE6500D3EEFC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				38EA77EE25D7173A00836B30 /* NewExpenseViewModel.swift */,
-				38EA780925D73ECE00836B30 /* NewIncomeViewModel.swift */,
+				38EA782A25D8AEAF00836B30 /* MainPanelViewModel.swift */,
+				38EA77EE25D7173A00836B30 /* ExpenseViewModel.swift */,
+				38EA780925D73ECE00836B30 /* IncomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,6 +251,14 @@
 				38EA77CF25D6B4D500836B30 /* HistoryTableViewCell.swift */,
 			);
 			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		38EA781E25D87E8E00836B30 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				38EA781F25D87EB900836B30 /* Parsers.swift */,
+			);
+			path = Parsers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38EA782B25D8AEB000836B30 /* MainPanelViewModel.swift in Sources */,
 				3861719B25D35A34006B7F36 /* TableHeaderView.swift in Sources */,
 				38EA77CB25D6A9FD00836B30 /* IncomeExpenseHistoryViewController.swift in Sources */,
 				386171B825D54FFD006B7F36 /* NewEntryView.swift in Sources */,
@@ -415,12 +430,13 @@
 				3820775A25D2B01F00D3EEFC /* Enums.swift in Sources */,
 				386171A525D41940006B7F36 /* IncomeAndExpensesHistoryView.swift in Sources */,
 				3820771725D2AD6500D3EEFC /* SceneDelegate.swift in Sources */,
+				38EA782025D87EB900836B30 /* Parsers.swift in Sources */,
 				386171B025D42D8B006B7F36 /* NewIncomeView.swift in Sources */,
 				38C6BA8D25D5846E00891AB4 /* CoreDataManager.swift in Sources */,
 				38EA77FD25D729D800836B30 /* Expense+CoreDataProperties.swift in Sources */,
-				38EA780A25D73ECE00836B30 /* NewIncomeViewModel.swift in Sources */,
+				38EA780A25D73ECE00836B30 /* IncomeViewModel.swift in Sources */,
 				38EA77C625D6A52D00836B30 /* NewEntryViewController.swift in Sources */,
-				38EA77EF25D7173A00836B30 /* NewExpenseViewModel.swift in Sources */,
+				38EA77EF25D7173A00836B30 /* ExpenseViewModel.swift in Sources */,
 				3820777825D2C9CE00D3EEFC /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,6 @@ class HistoryTableViewCell: UITableViewCell {
     lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Pendente"
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         label.textColor = UIColor.tableTextWhite
         label.adjustsFontSizeToFitWidth = true
@@ -35,7 +34,6 @@ class HistoryTableViewCell: UITableViewCell {
     lazy var itemName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Cafézinho"
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textColor = UIColor.tableTextWhite
         label.adjustsFontSizeToFitWidth = true
@@ -47,7 +45,6 @@ class HistoryTableViewCell: UITableViewCell {
     lazy var itemDate: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "05 Fev"
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         label.textColor = UIColor.tableTextWhite
         label.adjustsFontSizeToFitWidth = true
@@ -59,9 +56,7 @@ class HistoryTableViewCell: UITableViewCell {
     lazy var itemPrice: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 1,50"
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-        label.textColor = UIColor.tableTextWhite
         label.adjustsFontSizeToFitWidth = true
         
         return label
@@ -71,6 +66,32 @@ class HistoryTableViewCell: UITableViewCell {
         super.layoutSubviews()
         setUpScreen()
         circularView.layer.cornerRadius = 0.5 * circularView.frame.width
+    }
+    
+    // MARK: - Config Cell
+    func configCell(name: String, price: String, date: String, status: Bool, cellType: Bool) {
+        
+        itemName.text = name
+        itemPrice.text = price
+        itemDate.text = date.replacingOccurrences(of: ".", with: "")
+        if status {
+            
+            statusLabel.text = "Sucedido"
+            circularView.backgroundColor = UIColor.paidGreen
+            
+        } else {
+            
+            statusLabel.text = "Pendente"
+            circularView.backgroundColor = UIColor.pendingYellow
+            
+        }
+        
+        if cellType {
+            itemPrice.textColor = UIColor.tableExpenseRed
+        
+        } else {
+            itemPrice.textColor = UIColor.tableTextWhite
+        }
     }
 }
 
