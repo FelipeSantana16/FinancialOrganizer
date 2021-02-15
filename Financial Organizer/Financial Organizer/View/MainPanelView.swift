@@ -13,7 +13,7 @@ class MainPanelView: UIView {
     lazy var monthButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Janeiro", for: .normal)
+        button.setTitle("Financial Organizer", for: .normal)
         button.setTitleColor(UIColor.textDarkGrey, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 21, weight: .medium)
         

@@ -24,7 +24,7 @@ class IncomeAndExpensesHistoryView: UIView {
     lazy var incomeExpenseLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Receitas"
+        //label.text = "Receitas"
         label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
         label.textColor = UIColor.textDarkGrey
         
@@ -35,7 +35,7 @@ class IncomeAndExpensesHistoryView: UIView {
     lazy var incomeExpenseValue: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 3000"
+        //label.text = "R$ 3000"
         label.font = UIFont.systemFont(ofSize: 29, weight: .regular)
         label.textColor = UIColor.textDarkGrey
         
