@@ -9,22 +9,10 @@ import UIKit
 
 class IncomeAndExpensesHistoryView: UIView {
 
-    // MARK: Segmented Control
-    lazy var segmentedControl: UISegmentedControl = {
-        let segmented = UISegmentedControl()
-        segmented.translatesAutoresizingMaskIntoConstraints = false
-        segmented.insertSegment(withTitle: "Receita", at: 0, animated: true)
-        segmented.insertSegment(withTitle: "Despesa", at: 1, animated: true)
-        segmented.selectedSegmentIndex = 1
-        
-        return segmented
-    }()
-    
     // MARK: Income/Expense Label
     lazy var incomeExpenseLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.text = "Receitas"
         label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
         label.textColor = UIColor.textDarkGrey
         
@@ -35,7 +23,6 @@ class IncomeAndExpensesHistoryView: UIView {
     lazy var incomeExpenseValue: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.text = "R$ 3000"
         label.font = UIFont.systemFont(ofSize: 29, weight: .regular)
         label.textColor = UIColor.textDarkGrey
         
@@ -75,7 +62,6 @@ extension IncomeAndExpensesHistoryView: ViewCode {
     
     // MARK: Build Hierarchy
     func buildHierarchy() {
-        addSubview(segmentedControl)
         addSubview(incomeExpenseLabel)
         addSubview(incomeExpenseValue)
         addSubview(tableView)
@@ -85,13 +71,7 @@ extension IncomeAndExpensesHistoryView: ViewCode {
     func setUpLayoutConstraint() {
         
         NSLayoutConstraint.activate([
-            segmentedControl.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 8),
-            segmentedControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 42),
-            segmentedControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -42)
-        ])
-        
-        NSLayoutConstraint.activate([
-            incomeExpenseLabel.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 24),
+            incomeExpenseLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 8),
             incomeExpenseLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
         

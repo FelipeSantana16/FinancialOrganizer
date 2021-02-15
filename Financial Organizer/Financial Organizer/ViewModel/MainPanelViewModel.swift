@@ -24,7 +24,7 @@ class MainPanelViewModel {
         entries.append(contentsOf: incomes)
         
         entries.sort {
-            $0.date < $1.date
+            $0.date > $1.date
         }
         
     }

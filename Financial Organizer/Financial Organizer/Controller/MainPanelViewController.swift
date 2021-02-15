@@ -65,7 +65,7 @@ class MainPanelViewController: UIViewController {
     
     @objc func showIncomes() {
         let incomeExpenseHistory = IncomeExpenseHistoryViewController()
-        incomeExpenseHistory.myHistory.segmentedControl.selectedSegmentIndex = 0
+        incomeExpenseHistory.setViewData(cellData: self.panelViewModel.incomesViewModel.getIncomesForCell(), entryType: "Receita total:", entryValue: "R$ " + String(self.panelViewModel.incomesViewModel.getTotalIncome()))
         let backItem = UIBarButtonItem()
         backItem.title = "Painel Principal"
         backItem.tintColor = UIColor.textDarkGrey
@@ -76,7 +76,7 @@ class MainPanelViewController: UIViewController {
     
     @objc func showExpenses() {
         let incomeExpenseHistory = IncomeExpenseHistoryViewController()
-        incomeExpenseHistory.myHistory.segmentedControl.selectedSegmentIndex = 1
+        incomeExpenseHistory.setViewData(cellData: self.panelViewModel.expensesViewModel.getExpensesForCell(), entryType: "Despesa total:", entryValue: "R$ " + String(self.panelViewModel.expensesViewModel.getTotalExpense()))
         let backItem = UIBarButtonItem()
         backItem.title = "Painel Principal"
         backItem.tintColor = UIColor.textDarkGrey
@@ -113,5 +113,11 @@ extension MainPanelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 69
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        //Chamada para mostrar dados detalhados da compra
     }
 }

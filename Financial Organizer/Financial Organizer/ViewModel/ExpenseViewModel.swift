@@ -59,6 +59,12 @@ class ExpenseViewModel {
             cellExpenses.append(cell)
         }
         
+        cellExpenses.sort {
+            
+            $0.date > $1.date
+            
+        }
+        
         return cellExpenses
         
     }

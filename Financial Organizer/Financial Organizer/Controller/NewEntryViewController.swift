@@ -27,6 +27,28 @@ class NewEntryViewController: UIViewController {
         self.entryView.segmentedControl.addTarget(self, action: #selector(handleSegmentedChange), for: .valueChanged)
         self.entryView.cancelButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         self.entryView.registerButton.addTarget(self, action: #selector(addEntry), for: .touchUpInside)
+        
+        self.entryView.expenseView.localTextField.addTarget(self, action: #selector(keyboardWillShow), for: .editingDidBegin)
+        self.entryView.expenseView.localTextField.addTarget(self, action: #selector(keyboardWillHide), for: .editingDidEnd)
+        self.entryView.expenseView.paidMethodTextField.addTarget(self, action: #selector(keyboardWillShow), for: .editingDidBegin)
+        self.entryView.expenseView.paidMethodTextField.addTarget(self, action: #selector(keyboardWillHide), for: .editingDidEnd)
+    }
+    
+    // MARK: - Funcs to move the screen up when the keyboard appears
+    @objc func keyboardWillShow() {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= (self.view.frame.height / 4) //keyboardSize.height
+        }
+    }
+
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     @objc func dismissView() {
@@ -35,7 +57,6 @@ class NewEntryViewController: UIViewController {
     
     @objc func addEntry() {
         
-        //Verificar segmentedControl
         let index = self.entryView.segmentedControl.selectedSegmentIndex
 
         let expensesView = self.entryView.expenseView

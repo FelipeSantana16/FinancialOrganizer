@@ -9,8 +9,7 @@ import UIKit
 
 class IncomeExpenseHistoryViewController: UIViewController {
         
-    let expenseViewModel = ExpenseViewModel()
-    let incomeViewModel = IncomeViewModel()
+    var tableData = [CellDTO]()
     
     lazy var myHistory: IncomeAndExpensesHistoryView = {
         let view = IncomeAndExpensesHistoryView()
@@ -26,39 +25,15 @@ class IncomeExpenseHistoryViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.barTintColor = .white
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.myHistory.segmentedControl.addTarget(self, action: #selector(handleSegmented), for: .valueChanged)
-        
-        expenseViewModel.getAllExpenses()
-        incomeViewModel.getAllIncomes()
         
     }
     
-    @objc func handleSegmented() {
+    func setViewData(cellData: [CellDTO], entryType: String, entryValue: String) {
         
-        let segmented = myHistory.segmentedControl.selectedSegmentIndex
-                
-        if segmented == 0 {
-            
-            //Setup label, value and feed the table with incomes
-            self.myHistory.incomeExpenseLabel.text = "Receita total: "
-            
-            self.myHistory.incomeExpenseValue.text = "R$ " +  String(incomeViewModel.getTotalIncome())
-            
-            DispatchQueue.main.async {
-                self.myHistory.tableView.reloadData()
-            }
-            
-        } else {
-            
-            //Setup label, value and feed the table with incomes
-            self.myHistory.incomeExpenseLabel.text = "Despesa total: "
-            
-            self.myHistory.incomeExpenseValue.text = "R$ " + String(expenseViewModel.getTotalExpense())
-            
-            DispatchQueue.main.async {
-                self.myHistory.tableView.reloadData()
-            }
-        }
+        self.tableData = cellData
+        self.myHistory.incomeExpenseLabel.text = entryType
+        self.myHistory.incomeExpenseValue.text = entryValue
+        
     }
 
 }
@@ -66,38 +41,14 @@ class IncomeExpenseHistoryViewController: UIViewController {
 extension IncomeExpenseHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let index = myHistory.segmentedControl.selectedSegmentIndex
-        
-        if index == 0 {
-            
-            return self.expenseViewModel.expenses.count
-            
-        } else {
-            
-            return self.incomeViewModel.incomes.count
-            
-        }
+        return self.tableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath) as! HistoryTableViewCell
         
-        let index = myHistory.segmentedControl.selectedSegmentIndex
-        
-        var allData = [CellDTO]()
-        
-        if index == 0 {
-            
-            allData = incomeViewModel.getIncomesForCell()
-            
-        } else {
-            
-            allData = expenseViewModel.getExpensesForCell()
-
-        }
-        
-        let data = allData[indexPath.row]
+        let data = tableData[indexPath.row]
         
         cell.configCell(name: data.itemName, price: data.itemPrice, date: data.itemDate, status: data.itemStatus, cellType: data.expenseType)
         
@@ -113,5 +64,12 @@ extension IncomeExpenseHistoryViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 69
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        //Chamada para mostrar dados detalhados da compra
+        
     }
 }

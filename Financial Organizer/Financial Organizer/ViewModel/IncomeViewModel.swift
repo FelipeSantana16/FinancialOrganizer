@@ -57,6 +57,11 @@ class IncomeViewModel {
             cellIncomes.append(cell)
         }
         
+        cellIncomes.sort {
+            
+            $0.date > $1.date
+            
+        }
         return cellIncomes
         
     }

@@ -31,7 +31,7 @@ class NewIncomeView: UIView {
         price.textColor = UIColor.textDarkGrey
         price.placeholder = "R$ 00,0"
         price.attributedPlaceholder = NSAttributedString(string: "R$ 00,0", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
-        price.keyboardType = .numbersAndPunctuation
+        price.keyboardType = .numberPad
         
         return price
     }()
