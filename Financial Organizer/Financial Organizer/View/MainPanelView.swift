@@ -46,7 +46,7 @@ class MainPanelView: UIView {
     lazy var balanceValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.text = "R$ 1450"
+        // label.text = "R$ 1450"
         label.font = UIFont.systemFont(ofSize: 56, weight: .medium)
         label.textColor = UIColor.textDarkGrey
         
@@ -77,7 +77,7 @@ class MainPanelView: UIView {
     lazy var incomeValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.text = "R$ +3000"
+        // label.text = "R$ +3000"
         label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
         label.textColor = UIColor.white
         
@@ -88,7 +88,7 @@ class MainPanelView: UIView {
     lazy var expenseValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        //label.text = "R$ -1550"
+        // label.text = "R$ -1550"
         label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
         label.textColor = UIColor.white
         
