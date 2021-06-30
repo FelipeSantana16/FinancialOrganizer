@@ -9,33 +9,36 @@ import UIKit
 
 class MainPanelView: UIView {
 
-    // MARK: Month Button
-    lazy var monthButton: UIButton = {
+    // MARK: Select Month Button
+    lazy var selectMonthButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Financial Organizer", for: .normal)
+        button.tintColor = UIColor.textDarkGrey
+        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        button.setTitle("Junho", for: .normal)
         button.setTitleColor(UIColor.textDarkGrey, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 21, weight: .medium)
+        button.semanticContentAttribute = .forceRightToLeft
         
         return button
     }()
     
-    // MARK: Entry Button
-    lazy var entryButton: UIButton = {
+    // MARK: Add New Entry Button
+    lazy var addNewEntryButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setBackgroundImage(UIImage(systemName: "plus"), for: .normal)
-        button.tintColor = UIColor.textDarkGrey
+        button.tintColor = UIColor.systemBlue
         
         return button
     }()
     
-    // MARK: Balance Title
-    lazy var balanceTitleLabel: UILabel = {
+    // MARK: Actual Month Balance Title
+    lazy var actualMonthBalanceTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Balanço Mensal"
-        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = UIColor.textDarkGrey
         label.adjustsFontSizeToFitWidth = true
         
@@ -46,15 +49,15 @@ class MainPanelView: UIView {
     lazy var balanceValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        // label.text = "R$ 1450"
+        label.text = "R$ 1450"
         label.font = UIFont.systemFont(ofSize: 56, weight: .medium)
         label.textColor = UIColor.textDarkGrey
         
         return label
     }()
     
-    // MARK: Income Background
-    lazy var incomeBackground: UIView = {
+    // MARK: Incomes View Shape Background
+    lazy var incomesViewShapeBackground: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.incomeGreen
@@ -63,8 +66,8 @@ class MainPanelView: UIView {
         return view
     }()
     
-    // MARK: Expense Background
-    lazy var expenseBackground: UIView = {
+    // MARK: Expense View Shape Background
+    lazy var expensesViewShapeBackground: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.expenseRed
@@ -73,24 +76,35 @@ class MainPanelView: UIView {
         return view
     }()
     
-    // MARK: Income Value
-    lazy var incomeValueLabel: UILabel = {
+    // MARK: Incomes Value Label
+    lazy var incomesValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        // label.text = "R$ +3000"
-        label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
+        label.text = "R$ +3000"
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textColor = UIColor.white
         
         return label
     }()
     
-    // MARK: Expense Value
-    lazy var expenseValueLabel: UILabel = {
+    // MARK: Expense Value Label
+    lazy var expensesValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        // label.text = "R$ -1550"
-        label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
+        label.text = "R$ -1550"
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textColor = UIColor.white
+        
+        return label
+    }()
+    
+    // MARK: Income View Category Label
+    lazy var incomesViewCategoryLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Receitas"
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.textColor = .white
         
         return label
     }()
@@ -104,6 +118,17 @@ class MainPanelView: UIView {
         return view
     }()
     
+    // MARK: Expense View Category Label
+    lazy var expensesViewCategoryLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Despesas"
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.textColor = .white
+        
+        return label
+    }()
+    
     // MARK: Dividing Line Expense
     lazy var dividingLineExpense: UIView = {
         let view = UIView()
@@ -111,46 +136,6 @@ class MainPanelView: UIView {
         view.backgroundColor = UIColor.white
         
         return view
-    }()
-    
-    // MARK: Income Label
-    lazy var incomeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Receitas"
-        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
-        label.textColor = .white
-        
-        return label
-    }()
-    
-    // MARK: Expense Label
-    lazy var expenseLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Despesas"
-        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
-        label.textColor = .white
-        
-        return label
-    }()
-    
-    // MARK: Income Button
-    lazy var incomeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .clear
-        
-        return button
-    }()
-    
-    // MARK: Expense Button
-    lazy var expenseButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .clear
-        
-        return button
     }()
     
     // MARK: Table
@@ -163,7 +148,7 @@ class MainPanelView: UIView {
         table.separatorColor = UIColor.tableSeparatorGray
         table.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         table.layer.cornerRadius = 24
-        table.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        table.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         table.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)
@@ -188,114 +173,98 @@ extension MainPanelView: ViewCode {
     
     // MARK: Add Subviews
     func buildHierarchy() {
-        addSubview(monthButton)
-        addSubview(entryButton)
-        addSubview(balanceTitleLabel)
+        addSubview(selectMonthButton)
+        addSubview(addNewEntryButton)
+        addSubview(actualMonthBalanceTitleLabel)
         addSubview(balanceValueLabel)
-        addSubview(incomeBackground)
-        addSubview(expenseBackground)
-        addSubview(incomeValueLabel)
-        addSubview(expenseValueLabel)
+        addSubview(incomesViewShapeBackground)
+        addSubview(expensesViewShapeBackground)
+        addSubview(incomesValueLabel)
+        addSubview(expensesValueLabel)
+        addSubview(incomesViewCategoryLabel)
+        addSubview(expensesViewCategoryLabel)
         addSubview(dividingLineIncome)
         addSubview(dividingLineExpense)
-        addSubview(incomeLabel)
-        addSubview(expenseLabel)
-        addSubview(incomeButton)
-        addSubview(expenseButton)
         addSubview(tableView)
     }
     
     // MARK: Constraints
     func setUpLayoutConstraint() {
         NSLayoutConstraint.activate([
-            monthButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 8),
-            monthButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            selectMonthButton.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 8),
+            selectMonthButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            entryButton.centerYAnchor.constraint(equalTo: monthButton.centerYAnchor),
-            entryButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            entryButton.widthAnchor.constraint(equalToConstant: 32),
-            entryButton.heightAnchor.constraint(equalToConstant: 32)
+            addNewEntryButton.centerYAnchor.constraint(equalTo: selectMonthButton.centerYAnchor),
+            addNewEntryButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            addNewEntryButton.widthAnchor.constraint(equalToConstant: 32),
+            addNewEntryButton.heightAnchor.constraint(equalToConstant: 32)
         ])
-        
+
         NSLayoutConstraint.activate([
-            balanceTitleLabel.topAnchor.constraint(equalTo: monthButton.bottomAnchor, constant: 40),
-            balanceTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 35)
+            actualMonthBalanceTitleLabel.topAnchor.constraint(equalTo: selectMonthButton.bottomAnchor, constant: 40),
+            actualMonthBalanceTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 35)
         ])
-        
+
         NSLayoutConstraint.activate([
-            balanceValueLabel.topAnchor.constraint(equalTo: balanceTitleLabel.bottomAnchor, constant: 8),
+            balanceValueLabel.topAnchor.constraint(equalTo: actualMonthBalanceTitleLabel.bottomAnchor, constant: 8),
             balanceValueLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 35)
         ])
-        
+
         NSLayoutConstraint.activate([
-            incomeBackground.topAnchor.constraint(equalTo: balanceValueLabel.bottomAnchor, constant: 32),
-            incomeBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 35),
-            incomeBackground.widthAnchor.constraint(equalToConstant: 163),
-            incomeBackground.heightAnchor.constraint(equalToConstant: 144)
+            incomesViewShapeBackground.topAnchor.constraint(equalTo: balanceValueLabel.bottomAnchor, constant: 32),
+            incomesViewShapeBackground.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            incomesViewShapeBackground.widthAnchor.constraint(equalToConstant: 163),
+            incomesViewShapeBackground.heightAnchor.constraint(equalToConstant: 144)
+        ])
+
+        NSLayoutConstraint.activate([
+            expensesViewShapeBackground.topAnchor.constraint(equalTo: balanceValueLabel.bottomAnchor, constant: 32),
+            expensesViewShapeBackground.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            expensesViewShapeBackground.widthAnchor.constraint(equalToConstant: 163),
+            expensesViewShapeBackground.heightAnchor.constraint(equalToConstant: 144)
+        ])
+
+        NSLayoutConstraint.activate([
+            incomesValueLabel.centerYAnchor.constraint(equalTo: incomesViewShapeBackground.centerYAnchor),
+            incomesValueLabel.centerXAnchor.constraint(equalTo: incomesViewShapeBackground.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            expenseBackground.topAnchor.constraint(equalTo: balanceValueLabel.bottomAnchor, constant: 32),
-            expenseBackground.leadingAnchor.constraint(equalTo: incomeBackground.trailingAnchor, constant: 32),
-            expenseBackground.widthAnchor.constraint(equalToConstant: 163),
-            expenseBackground.heightAnchor.constraint(equalToConstant: 144)
+            incomesViewCategoryLabel.bottomAnchor.constraint(equalTo: incomesViewShapeBackground.bottomAnchor, constant: -8),
+            incomesViewCategoryLabel.centerXAnchor.constraint(equalTo: incomesViewShapeBackground.centerXAnchor)
         ])
-        
+
         NSLayoutConstraint.activate([
-            incomeValueLabel.topAnchor.constraint(equalTo: incomeBackground.topAnchor, constant: 40),
-            incomeValueLabel.centerXAnchor.constraint(equalTo: incomeBackground.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            dividingLineIncome.topAnchor.constraint(equalTo: incomeValueLabel.bottomAnchor, constant: 24),
-            dividingLineIncome.centerXAnchor.constraint(equalTo: incomeBackground.centerXAnchor),
+            dividingLineIncome.bottomAnchor.constraint(equalTo: incomesViewCategoryLabel.topAnchor, constant: -4),
+            dividingLineIncome.centerXAnchor.constraint(equalTo: incomesViewShapeBackground.centerXAnchor),
             dividingLineIncome.heightAnchor.constraint(equalToConstant: 1),
-            dividingLineIncome.widthAnchor.constraint(equalTo: incomeBackground.widthAnchor, multiplier: 0.85)
+            dividingLineIncome.widthAnchor.constraint(equalTo: incomesViewShapeBackground.widthAnchor, multiplier: 0.85)
+        ])
+
+        NSLayoutConstraint.activate([
+            expensesValueLabel.centerYAnchor.constraint(equalTo: expensesViewShapeBackground.centerYAnchor),
+            expensesValueLabel.centerXAnchor.constraint(equalTo: expensesViewShapeBackground.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            incomeLabel.topAnchor.constraint(equalTo: dividingLineIncome.bottomAnchor, constant: 8),
-            incomeLabel.centerXAnchor.constraint(equalTo: incomeBackground.centerXAnchor)
+            expensesViewCategoryLabel.bottomAnchor.constraint(equalTo: expensesViewShapeBackground.bottomAnchor, constant: -4),
+            expensesViewCategoryLabel.centerXAnchor.constraint(equalTo: expensesViewShapeBackground.centerXAnchor)
         ])
-        
+
         NSLayoutConstraint.activate([
-            expenseValueLabel.topAnchor.constraint(equalTo: expenseBackground.topAnchor, constant: 40),
-            expenseValueLabel.centerXAnchor.constraint(equalTo: expenseBackground.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            dividingLineExpense.topAnchor.constraint(equalTo: expenseValueLabel.bottomAnchor, constant: 24),
-            dividingLineExpense.centerXAnchor.constraint(equalTo: expenseBackground.centerXAnchor),
+            dividingLineExpense.bottomAnchor.constraint(equalTo: expensesViewCategoryLabel.topAnchor, constant: -8),
+            dividingLineExpense.centerXAnchor.constraint(equalTo: expensesViewShapeBackground.centerXAnchor),
             dividingLineExpense.heightAnchor.constraint(equalToConstant: 1),
-            dividingLineExpense.widthAnchor.constraint(equalTo: expenseBackground.widthAnchor, multiplier: 0.85)
+            dividingLineExpense.widthAnchor.constraint(equalTo: expensesViewShapeBackground.widthAnchor, multiplier: 0.85)
         ])
-        
+
         NSLayoutConstraint.activate([
-            expenseLabel.topAnchor.constraint(equalTo: dividingLineExpense.bottomAnchor, constant: 8),
-            expenseLabel.centerXAnchor.constraint(equalTo: expenseBackground.centerXAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            incomeButton.centerYAnchor.constraint(equalTo: incomeBackground.centerYAnchor),
-            incomeButton.centerXAnchor.constraint(equalTo: incomeBackground.centerXAnchor),
-            incomeButton.heightAnchor.constraint(equalTo: incomeBackground.heightAnchor),
-            incomeButton.widthAnchor.constraint(equalTo: incomeBackground.widthAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            expenseButton.centerYAnchor.constraint(equalTo: expenseBackground.centerYAnchor),
-            expenseButton.centerXAnchor.constraint(equalTo: expenseBackground.centerXAnchor),
-            expenseButton.heightAnchor.constraint(equalTo: expenseBackground.heightAnchor),
-            expenseButton.widthAnchor.constraint(equalTo: expenseBackground.widthAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: incomeBackground.bottomAnchor, constant: 24),
+            tableView.topAnchor.constraint(equalTo: incomesViewShapeBackground.bottomAnchor, constant: 24),
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
         ])
     }
     
