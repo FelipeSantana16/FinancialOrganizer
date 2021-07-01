@@ -50,8 +50,13 @@ class NewEntryViewController: UIViewController {
     }
     
     @objc func keyboardWillShow() {
+        
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= (self.view.frame.height / 4) // keyboardSize.height
+            if self.view.frame.height <= 680 {
+                self.view.frame.origin.y -= (self.view.frame.height * 0.4)
+            } else {
+                self.view.frame.origin.y -= (self.view.frame.height / 4) // keyboardSize.height
+            }
         }
     }
 
