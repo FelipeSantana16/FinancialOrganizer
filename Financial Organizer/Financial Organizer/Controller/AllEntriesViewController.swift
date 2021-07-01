@@ -1,42 +1,34 @@
 //
-//  MainPanelViewController.swift
+//  AllEntriesViewController.swift
 //  Financial Organizer
 //
-//  Created by Felipe Santana on 29/06/21.
+//  Created by Felipe Santana on 01/07/21.
 //
 
 import UIKit
 
-class MainPanelViewController: UIViewController {
+class AllEntriesViewController: UIViewController {
     
-    lazy var mainPanel: MainPanelView = {
-        let view = MainPanelView()
+    lazy var allEntriesView: AllEntriesView = {
+        let view = AllEntriesView()
         view.tableView.delegate = self
         view.tableView.dataSource = self
         
         return view
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = mainPanel
-        mainPanel.addNewEntryButton.addTarget(self, action: #selector(addNewEntry), for: .touchUpInside)
-    }
-    
-    @objc func addNewEntry() {
-        let newEntryViewController = NewEntryViewController()
-        present(newEntryViewController, animated: true, completion: nil)
-    }
-    
-    @objc func viewAllEntries() {
-        let allEntriesViewController = AllEntriesViewController()
-        
-        self.navigationController?.pushViewController(allEntriesViewController, animated: true)
-    }
 
+        view = allEntriesView
+        
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }
 
-extension MainPanelViewController: UITableViewDelegate, UITableViewDataSource {
+extension AllEntriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10
     }
@@ -53,7 +45,8 @@ extension MainPanelViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let tableHeader = TableHeaderView()
-        tableHeader.viewAllButton.addTarget(self, action: #selector(viewAllEntries), for: .touchUpInside)
+        tableHeader.titleLabel.text = "Todos lançamentos"
+        tableHeader.viewAllButton.isHidden = true
         
         return tableHeader
     }

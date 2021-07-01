@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IncomeAndExpensesHistoryView: UIView {
+class AllEntriesView: UIView {
 
     // MARK: Income/Expense Label
     lazy var incomeExpenseLabel: UILabel = {
@@ -38,8 +38,8 @@ class IncomeAndExpensesHistoryView: UIView {
         table.backgroundColor = UIColor.backgroundGrey
         table.separatorColor = UIColor.tableSeparatorGray
         table.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        table.layer.cornerRadius = 24
-        table.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        // table.layer.cornerRadius = 24
+        // table.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
@@ -58,7 +58,7 @@ class IncomeAndExpensesHistoryView: UIView {
     }
 }
 
-extension IncomeAndExpensesHistoryView: ViewCode {
+extension AllEntriesView: ViewCode {
     
     // MARK: Build Hierarchy
     func buildHierarchy() {
@@ -82,15 +82,15 @@ extension IncomeAndExpensesHistoryView: ViewCode {
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: incomeExpenseLabel.bottomAnchor, constant: 8),
-            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor/*, constant: 16*/),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor/*, constant: -16*/),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
     
     // MARK: Aditional Config
     func aditionalConfigurations() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor.backgroundGrey
         
     }
     

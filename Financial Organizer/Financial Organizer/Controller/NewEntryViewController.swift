@@ -9,7 +9,7 @@ import UIKit
 
 class NewEntryViewController: UIViewController {
     
-    let entryView: NewEntryView = {
+    lazy var entryView: NewEntryView = {
         let view = NewEntryView()
         
         return view
