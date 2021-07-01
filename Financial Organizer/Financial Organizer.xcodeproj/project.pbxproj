@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3807C771268B60F000DB3AF7 /* MainPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807C770268B60F000DB3AF7 /* MainPanelViewController.swift */; };
+		3807C773268E036600DB3AF7 /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807C772268E036600DB3AF7 /* NewEntryViewController.swift */; };
 		3820771525D2AD6500D3EEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820771425D2AD6500D3EEFC /* AppDelegate.swift */; };
 		3820771725D2AD6500D3EEFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820771625D2AD6500D3EEFC /* SceneDelegate.swift */; };
 		3820771925D2AD6500D3EEFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820771825D2AD6500D3EEFC /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		3807C770268B60F000DB3AF7 /* MainPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPanelViewController.swift; sourceTree = "<group>"; };
+		3807C772268E036600DB3AF7 /* NewEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 		3820771125D2AD6500D3EEFC /* Financial Organizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Financial Organizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3820771425D2AD6500D3EEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3820771625D2AD6500D3EEFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				3807C770268B60F000DB3AF7 /* MainPanelViewController.swift */,
+				3807C772268E036600DB3AF7 /* NewEntryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				3820776325D2B61700D3EEFC /* MainPanelView.swift in Sources */,
 				3820775A25D2B01F00D3EEFC /* Enums.swift in Sources */,
 				386171A525D41940006B7F36 /* IncomeAndExpensesHistoryView.swift in Sources */,
+				3807C773268E036600DB3AF7 /* NewEntryViewController.swift in Sources */,
 				3807C771268B60F000DB3AF7 /* MainPanelViewController.swift in Sources */,
 				3820771725D2AD6500D3EEFC /* SceneDelegate.swift in Sources */,
 				386171B025D42D8B006B7F36 /* NewIncomeView.swift in Sources */,

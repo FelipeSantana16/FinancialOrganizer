@@ -148,7 +148,7 @@ class MainPanelView: UIView {
         table.separatorColor = UIColor.tableSeparatorGray
         table.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         table.layer.cornerRadius = 24
-        table.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        // table.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         table.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.identifier)

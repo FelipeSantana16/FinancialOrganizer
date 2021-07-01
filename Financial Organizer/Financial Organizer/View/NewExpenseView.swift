@@ -115,28 +115,6 @@ class NewExpenseView: UIView {
         return textField
     }()
     
-    // MARK: Paid Text
-    lazy var paidLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.text = "Já pagou?"
-        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
-        
-    }()
-    
-    // MARK: Paid Switch
-    lazy var paidSwitch: UISwitch = {
-        let paidSwitch = UISwitch()
-        paidSwitch.translatesAutoresizingMaskIntoConstraints = false
-        paidSwitch.isOn = true
-        
-        return paidSwitch
-    }()
-    
     // MARK: Paid Method Label
     lazy var paidMethodLabel: UILabel = {
         let label = UILabel()
@@ -161,28 +139,6 @@ class NewExpenseView: UIView {
         textField.attributedPlaceholder = NSAttributedString(string: "Ex: Dinheiro", attributes: [NSAttributedString.Key.foregroundColor: UIColor.placeHolderWhite])
         
         return textField
-    }()
-    
-    // MARK: Fix Expense Text
-    lazy var fixExpenseLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.text = "É despesa fixa?"
-        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
-        
-    }()
-    
-    // MARK: Fix Expense Switch
-    lazy var fixExpenseSwitch: UISwitch = {
-        let paidSwitch = UISwitch()
-        paidSwitch.translatesAutoresizingMaskIntoConstraints = false
-        paidSwitch.isOn = false
-        
-        return paidSwitch
     }()
     
     override func layoutSubviews() {
@@ -211,12 +167,8 @@ extension NewExpenseView: ViewCode {
         addSubview(itemDate)
         addSubview(localLabel)
         addSubview(localTextField)
-        addSubview(paidLabel)
-        addSubview(paidSwitch)
         addSubview(paidMethodLabel)
         addSubview(paidMethodTextField)
-        addSubview(fixExpenseLabel)
-        addSubview(fixExpenseSwitch)
     }
     
     // MARK: Constraints
@@ -264,17 +216,7 @@ extension NewExpenseView: ViewCode {
         ])
         
         NSLayoutConstraint.activate([
-            paidLabel.topAnchor.constraint(equalTo: localTextField.bottomAnchor, constant: 24),
-            paidLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            paidSwitch.centerYAnchor.constraint(equalTo: paidLabel.centerYAnchor),
-            paidSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            paidMethodLabel.topAnchor.constraint(equalTo: paidLabel.bottomAnchor, constant: 24),
+            paidMethodLabel.topAnchor.constraint(equalTo: localTextField.bottomAnchor, constant: 24),
             paidMethodLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
         
@@ -282,16 +224,6 @@ extension NewExpenseView: ViewCode {
             paidMethodTextField.topAnchor.constraint(equalTo: paidMethodLabel.bottomAnchor, constant: 4),
             paidMethodTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             paidMethodTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            fixExpenseLabel.topAnchor.constraint(equalTo: paidMethodTextField.bottomAnchor, constant: 24),
-            fixExpenseLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            fixExpenseSwitch.centerYAnchor.constraint(equalTo: fixExpenseLabel.centerYAnchor),
-            fixExpenseSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
     }
     

@@ -14,8 +14,8 @@ class NewEntryView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Cancelar", for: .normal)
-        button.setTitleColor(UIColor.textDarkGrey, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        button.setTitleColor(UIColor.systemRed, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         
         return button
     }()
@@ -26,7 +26,7 @@ class NewEntryView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Registrar", for: .normal)
         button.setTitleColor(UIColor.systemBlue, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         
         return button
     }()

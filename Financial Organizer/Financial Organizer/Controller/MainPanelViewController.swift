@@ -20,7 +20,12 @@ class MainPanelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainPanel
-        // Do any additional setup after loading the view.
+        mainPanel.addNewEntryButton.addTarget(self, action: #selector(addNewEntry), for: .touchUpInside)
+    }
+    
+    @objc func addNewEntry() {
+        let newEntryViewController = NewEntryViewController()
+        present(newEntryViewController, animated: true, completion: nil)
     }
 
 }
@@ -40,7 +45,7 @@ extension MainPanelViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+
         return TableHeaderView()
     }
     
@@ -52,7 +57,7 @@ extension MainPanelViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
         tableView.deselectRow(at: indexPath, animated: true)
-        //Chamada para mostrar dados detalhados da compra
+        // Chamada para mostrar dados detalhados da compra
     }
     
 }

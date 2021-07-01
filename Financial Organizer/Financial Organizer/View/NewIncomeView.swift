@@ -63,76 +63,6 @@ class NewIncomeView: UIView {
         return textField
     }()
     
-    // MARK: Received Text
-    lazy var receivedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.text = "Já recebeu?"
-        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
-        
-    }()
-    
-    // MARK: Received Switch
-    lazy var receivedSwitch: UISwitch = {
-        let paidSwitch = UISwitch()
-        paidSwitch.translatesAutoresizingMaskIntoConstraints = false
-        paidSwitch.isOn = true
-        
-        return paidSwitch
-    }()
-    
-    // MARK: Item Text Date
-    lazy var itemTextDate: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.text = "Quando recebu?"
-        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
-    }()
-    
-    // MARK: Item Date
-    lazy var itemDate: UIDatePicker = {
-        let date = UIDatePicker()
-        date.translatesAutoresizingMaskIntoConstraints = false
-        date.datePickerMode = .dateAndTime
-        
-        let locale = Locale(identifier: "pt-br")
-        date.locale = locale
-        date.calendar.locale = locale
-        date.date = Date()
-        
-        return date
-    }()
-    
-    // MARK: Fixed Income Text
-    lazy var fixedIncomeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.text = "É renda fixa?"
-        label.font = UIFont.systemFont(ofSize: 21, weight: .semibold)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
-        
-    }()
-    
-    // MARK: Fixed Income Switch
-    lazy var fixedIncomeSwitch: UISwitch = {
-        let paidSwitch = UISwitch()
-        paidSwitch.translatesAutoresizingMaskIntoConstraints = false
-        paidSwitch.isOn = false
-        
-        return paidSwitch
-    }()
-    
     // MARK: Layout Subviews
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -155,12 +85,6 @@ extension NewIncomeView: ViewCode {
         addSubview(itemPrice)
         addSubview(itemNameLabel)
         addSubview(itemNameTextField)
-        addSubview(receivedLabel)
-        addSubview(receivedSwitch)
-        addSubview(itemTextDate)
-        addSubview(itemDate)
-        addSubview(fixedIncomeLabel)
-        addSubview(fixedIncomeSwitch)
     }
     
     func setUpLayoutConstraint() {
@@ -185,35 +109,6 @@ extension NewIncomeView: ViewCode {
             itemNameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
 
-        NSLayoutConstraint.activate([
-            receivedLabel.topAnchor.constraint(equalTo: itemNameTextField.bottomAnchor, constant: 24),
-            receivedLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
-
-        NSLayoutConstraint.activate([
-            receivedSwitch.centerYAnchor.constraint(equalTo: receivedLabel.centerYAnchor),
-            receivedSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-        ])
-
-        NSLayoutConstraint.activate([
-            itemTextDate.topAnchor.constraint(equalTo: receivedLabel.bottomAnchor, constant: 24),
-            itemTextDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
-
-        NSLayoutConstraint.activate([
-            itemDate.topAnchor.constraint(equalTo: itemTextDate.bottomAnchor, constant: 8),
-            itemDate.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
-
-        NSLayoutConstraint.activate([
-            fixedIncomeLabel.topAnchor.constraint(equalTo: itemDate.bottomAnchor, constant: 24),
-            fixedIncomeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
-
-        NSLayoutConstraint.activate([
-            fixedIncomeSwitch.centerYAnchor.constraint(equalTo: fixedIncomeLabel.centerYAnchor),
-            fixedIncomeSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-        ])
     }
     
     func aditionalConfigurations() {
