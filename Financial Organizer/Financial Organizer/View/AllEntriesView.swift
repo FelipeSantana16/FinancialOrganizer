@@ -8,26 +8,6 @@
 import UIKit
 
 class AllEntriesView: UIView {
-
-    // MARK: Income/Expense Label
-    lazy var incomeExpenseLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 32, weight: .regular)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
-    }()
-    
-    // MARK: Income/Expense Value
-    lazy var incomeExpenseValue: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 29, weight: .regular)
-        label.textColor = UIColor.textDarkGrey
-        
-        return label
-    }()
     
     // MARK: Table
     lazy var tableView: UITableView = {
@@ -62,8 +42,6 @@ extension AllEntriesView: ViewCode {
     
     // MARK: Build Hierarchy
     func buildHierarchy() {
-        addSubview(incomeExpenseLabel)
-        addSubview(incomeExpenseValue)
         addSubview(tableView)
     }
     
@@ -71,17 +49,7 @@ extension AllEntriesView: ViewCode {
     func setUpLayoutConstraint() {
         
         NSLayoutConstraint.activate([
-            incomeExpenseLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 8),
-            incomeExpenseLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            incomeExpenseValue.centerYAnchor.constraint(equalTo: incomeExpenseLabel.centerYAnchor),
-            incomeExpenseValue.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
-        ])
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: incomeExpenseLabel.bottomAnchor, constant: 8),
+            tableView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor/*, constant: 16*/),
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor/*, constant: -16*/),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
